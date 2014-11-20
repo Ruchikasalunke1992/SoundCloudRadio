@@ -1,0 +1,26 @@
+Pivotal Tracker
+
+Project:
+https://www.pivotaltracker.com/n/projects/1185722
+
+Users:
+aashay-borgaonkar@uiowa.edu
+cesarenrique-bonezzirincon@uiowa.edu
+felipe-dealcantaradau@uiowa.edu
+prajwal-kedilaya@uiowa.edu
+ruchika-salunke@uiowa.edu
+
+We decided to use labels on the stories to keep it more organized. Stories with the "user" label are the actual user stories, and stories with the "developer" label have features that need to be added, but the user is not aware of. The "developer" label is just a way to assist us handling subtasks to be implemented.
+
+GitHub
+
+Repository:
+https://github.com/felipedau/SoundCloud_Radio
+
+Users:
+aborgaonkar
+cbonezzi
+felipedau
+pjkedilaya
+Ruchikasalunke1992
+
