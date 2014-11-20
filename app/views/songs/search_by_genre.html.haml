@@ -1,0 +1,55 @@
+%iframe{:width => "100%", :src => "https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F#{@songs_info[0][:id]}"}
+:javascript
+  $(function() {
+          // Setup the player to autoplay the next track
+          var a = audiojs.createAll({
+            trackEnded: function() {
+              var next = $('.list.playing').next();
+              if (!next.length) next = $('.list').first();
+              next.addClass('playing').siblings().removeClass('playing');
+              audio.load($('.song', next).attr('data-src'));
+              audio.play();
+            }
+          });
+
+          // Load in the first track
+          var audio = a[0];
+          first = $('.song').attr('data-src');
+          $('.list').first().addClass('playing');
+          audio.load(first);
+
+          $('#playPause').click(function(e) {
+            audio.playPause();
+            if (audio.playing) {
+              document.getElementById("playPause").className = "glyphicon glyphicon-pause";
+            }
+            else {
+              document.getElementById("playPause").className = "glyphicon glyphicon-play";
+            }
+
+          });
+
+          //$('#skip').click(function(e) {
+          //
+          //});
+        });
+.jumbotron
+  %h2 The following songs containing '#{@searched_term}' were found on SoundClound
+  %br
+  %table{:width => "100%"}
+    %thead
+      %tr
+        %th Username
+        %th Title
+        %th URL
+    %tbody
+      %div
+        %audio{:preload => ""}
+        -#%tr
+        -#  %td= @songs_info[0][:track]
+        - @songs_info.each do |metainfo|
+          %a.song{"data-src" => "#{metainfo[:stream_url]}", :href => "#", :style => "display:none"} &nbsp
+          %tr
+            %td= metainfo[:username]
+            %td= metainfo[:title]
+            %td= link_to "Link", metainfo[:url]
