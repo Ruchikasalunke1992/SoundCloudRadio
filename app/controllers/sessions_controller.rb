@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     # create client object with app credentials
     client = Soundcloud.new(:client_id => 'f5f27bd7924819d49bd18ce5789e288a',
                             :client_secret => '51a9a1e4bd75af7b101e0fd6c988626e',
-                            :redirect_uri => @heroku_redirect)
+                            :redirect_uri => 'http://sradio.herokuapp.com/callback')
     
     # TODO: Add try to make sure that the access token is retrieved successfully
     error = params[:error]
@@ -49,7 +49,7 @@ class SessionsController < ApplicationController
     # create client object with app credentials
     client = Soundcloud.new(:client_id => 'f5f27bd7924819d49bd18ce5789e288a',
                             :client_secret => '51a9a1e4bd75af7b101e0fd6c988626e',
-                            :redirect_uri => @heroku_redirect)
+                            :redirect_uri => 'http://sradio.herokuapp.com/callback')
     
     # redirect user to authorize URL
     redirect_to client.authorize_url
