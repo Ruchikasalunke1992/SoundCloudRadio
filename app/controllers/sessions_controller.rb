@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
 	def set_redirects
 		@base_url_local = 'http://localhost:3000/callback'
-		@base_url_heroku = 'https://sradio.herokuapp.com/callback'
+		@base_url_heroku = 'http://sradio.herokuapp.com/callback'
 	end
 
 	def new
